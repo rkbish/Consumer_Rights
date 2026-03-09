@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Consumer Rights! | Codju</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── CODJU THEME CSS VARIABLES ── */
+:root {
+  --co-orange:   #FF6B1A;
+  --co-orange2:  #FF8C42;
+  --co-teal:     #00B4A6;
+  --co-teal2:    #00D4C4;
+  --co-navy:     #1A2E4A;
+  --co-yellow:   #FFD23F;
+  --co-purple:   #7B5EA7;
+  --co-red:      #E63946;
+  --co-green:    #2DC653;
+  --co-white:    #FFFFFF;
+  --co-offwhite: #F4F7FA;
+  --co-card:     #FFFFFF;
+  --co-border:   #E2E8F0;
+  --co-text:     #1A2E4A;
+  --co-muted:    #64748B;
+  --radius-xl:   24px;
+  --radius-lg:   16px;
+  --radius-md:   12px;
+  --shadow-lg:   0 12px 40px rgba(26,46,74,0.13);
+  --shadow-md:   0 4px 16px rgba(26,46,74,0.10);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Nunito',sans-serif; background:var(--co-offwhite); color:var(--co-text); min-height:100vh; }
+.page-wrap { max-width:880px; margin:0 auto; padding:24px 16px 60px; }
+
+/* ── TOP BAR ── */
+.codju-topbar {
+  background: var(--co-navy); padding: 0 24px; height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.codju-logo { font-family: 'Fredoka One', cursive; font-size: 1.6rem; color: var(--co-orange); }
+.codju-logo span { color: var(--co-teal2); }
+.codju-badge {
+  background: var(--co-orange); color: #fff;
+  font-weight: 800; font-size: 0.75rem;
+  padding: 4px 12px; border-radius: 50px;
+}
+
+/* ── HERO ── */
+.chapter-hero {
+  background: linear-gradient(120deg, var(--co-navy) 0%, #243B5A 60%, #2D4F72 100%);
+  padding: 36px 24px 30px; text-align: center; position: relative; overflow: hidden;
+}
+.chapter-hero::before {
+  content:''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(255,107,26,0.18) 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(0,180,166,0.18) 0%, transparent 60%);
+}
+.ch-num {
+  display: inline-block; background: var(--co-orange); color: #fff;
+  font-family: 'Fredoka One', cursive; font-size: 0.85rem;
+  padding: 4px 14px; border-radius: 50px; margin-bottom: 10px; position: relative;
+}
+.ch-title {
+  font-family: 'Fredoka One', cursive; font-size: clamp(1.8rem,5vw,2.8rem);
+  color: #fff; line-height: 1.2; position: relative;
+}
+.ch-title span { color: var(--co-teal2); }
+.ch-sub { color: rgba(255,255,255,0.7); font-size: 0.95rem; font-weight: 600; margin-top: 8px; position: relative; }
+
+/* ── TAB BAR ── */
+.tab-bar {
+  background: var(--co-white); border-bottom: 2px solid var(--co-border);
+  padding: 0 16px; display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none;
+  position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-md);
+}
+.tab-bar::-webkit-scrollbar { display:none; }
+.tab-btn {
+  display: flex; align-items: center; gap: 6px;
+  padding: 14px 16px; border: none; background: none;
+  font-family: 'Nunito', sans-serif; font-size: 0.83rem; font-weight: 700;
+  color: var(--co-muted); cursor: pointer; white-space: nowrap;
+  border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s;
+}
+.tab-btn:hover { color: var(--co-orange); }
+.tab-btn.active { color: var(--co-orange); border-bottom-color: var(--co-orange); }
+
+/* ── CARD ── */
+.card {
+  background: var(--co-card); border-radius: var(--radius-xl); padding: 22px;
+  box-shadow: var(--shadow-lg); border: 1.5px solid var(--co-border); margin-bottom: 16px;
+}
+
+/* ── ACTIVITY HEADER ── */
+.act-header { display:flex; align-items:center; gap:14px; margin-bottom:20px; }
+.act-icon-wrap {
+  width:52px; height:52px; border-radius:var(--radius-lg);
+  display:flex; align-items:center; justify-content:center; font-size:1.6rem; flex-shrink:0;
+}
+.act-icon-wrap.orange { background: linear-gradient(135deg,#FF6B1A,#FF8C42); }
+.act-icon-wrap.teal   { background: linear-gradient(135deg,#00B4A6,#00D4C4); }
+.act-icon-wrap.purple { background: linear-gradient(135deg,#7B5EA7,#9B7FC4); }
+.act-icon-wrap.navy   { background: linear-gradient(135deg,#1A2E4A,#2D4F72); }
+.act-icon-wrap.yellow { background: linear-gradient(135deg,#FFD23F,#FFE570); }
+.act-icon-wrap.green  { background: linear-gradient(135deg,#2DC653,#5EE87A); }
+.act-icon-wrap.red    { background: linear-gradient(135deg,#E63946,#FF6B7A); }
+.act-icon-wrap.indigo { background: linear-gradient(135deg,#4F6DF5,#818CF8); }
+.act-label { font-size:0.7rem; font-weight:800; color:var(--co-orange); letter-spacing:1.5px; text-transform:uppercase; }
+.act-title { font-family:'Fredoka One',cursive; font-size:1.5rem; color:var(--co-navy); }
+.act-sub { font-size:0.85rem; color:var(--co-muted); font-weight:600; margin-top:2px; }
+
+/* ── CONCEPT BOXES ── */
+.concept-box { border-radius:var(--radius-lg); padding:18px 20px; margin-bottom:16px; }
+.concept-box.orange { background:#FFF5F0; border-left:4px solid var(--co-orange); }
+.concept-box.teal   { background:#F0FAFA; border-left:4px solid var(--co-teal); }
+.concept-box.purple { background:#F5F0FF; border-left:4px solid var(--co-purple); }
+.concept-box.yellow { background:#FFFBF0; border-left:4px solid var(--co-yellow); }
+.concept-box.navy   { background:#F0F4F8; border-left:4px solid var(--co-navy); }
+.concept-box.green  { background:#F0FFF5; border-left:4px solid var(--co-green); }
+.cb-title { font-family:'Fredoka One',cursive; font-size:1rem; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+.cb-body { font-size:0.88rem; font-weight:600; color:#334155; line-height:1.6; }
+
+/* ── BUTTONS ── */
+.co-btn { padding:10px 22px; border-radius:50px; font-family:'Nunito',sans-serif; font-weight:800; font-size:0.88rem; cursor:pointer; transition:all 0.2s; border:2px solid; display:inline-block; }
+.co-btn-orange { background:var(--co-orange); border-color:var(--co-orange); color:#fff; }
+.co-btn-orange:hover { background:var(--co-orange2); transform:translateY(-2px); }
+.co-btn-teal { background:var(--co-teal); border-color:var(--co-teal); color:#fff; }
+.co-btn-teal:hover { background:var(--co-teal2); transform:translateY(-2px); }
+.co-btn-outline { background:#fff; border-color:var(--co-border); color:var(--co-muted); }
+.co-btn-outline:hover { border-color:var(--co-navy); color:var(--co-navy); }
+
+/* ── ANIMATIONS ── */
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+@keyframes popUp { 0%{transform:scale(0.85)} 80%{transform:scale(1.03)} 100%{transform:scale(1)} }
+@keyframes slideUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:translateY(0)} }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes bounceIn { 0%{transform:scale(0);opacity:0} 60%{transform:scale(1.15);opacity:1} 100%{transform:scale(1)} }
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.activity { display:none; }
+.activity.active { display:block; animation:slideUp 0.35s ease; }
+
+/* ── CONFETTI ── */
+.conf-p { position:absolute; border-radius:2px; animation:fall linear forwards; }
+@keyframes fall { 0%{opacity:1;transform:translateY(-20px) rotate(0deg)} 100%{opacity:0;transform:translateY(100vh) rotate(720deg)} }
+
+/* ── PROGRESS BAR ── */
+.progress-wrap { background:var(--co-white); padding:12px 20px; border-bottom:1px solid var(--co-border); }
+.progress-inner { display:flex; align-items:center; gap:12px; max-width:880px; margin:0 auto; }
+.progress-label { font-size:0.75rem; font-weight:800; color:var(--co-muted); white-space:nowrap; }
+.progress-track { flex:1; height:8px; background:#E2E8F0; border-radius:50px; overflow:hidden; }
+.progress-fill { height:100%; background:linear-gradient(90deg,var(--co-orange),var(--co-teal)); border-radius:50px; transition:width 0.5s ease; width:0%; }
+.progress-pct { font-size:0.75rem; font-weight:800; color:var(--co-orange); min-width:32px; text-align:right; }
+
+/* ── GRADE SELECTOR ── */
+.grade-selector { display:flex; gap:16px; justify-content:center; margin:24px 0; flex-wrap:wrap; }
+.grade-card {
+  background:var(--co-white); border-radius:var(--radius-xl); padding:28px 32px;
+  box-shadow:var(--shadow-lg); border:3px solid var(--co-border); cursor:pointer;
+  transition:all 0.3s; text-align:center; min-width:200px; flex:1; max-width:300px;
+}
+.grade-card:hover { transform:translateY(-4px); border-color:var(--co-orange); }
+.grade-card.selected { border-color:var(--co-orange); background:#FFF5F0; }
+.grade-card-emoji { font-size:3rem; margin-bottom:10px; display:block; }
+.grade-card-title { font-family:'Fredoka One',cursive; font-size:1.3rem; color:var(--co-navy); }
+.grade-card-sub { font-size:0.82rem; color:var(--co-muted); font-weight:600; margin-top:4px; }
+
+/* ── RIGHTS ICONS GRID ── */
+.rights-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:14px; margin:20px 0; }
+.right-tile {
+  background:var(--co-white); border-radius:var(--radius-lg); padding:18px 14px;
+  text-align:center; box-shadow:var(--shadow-md); border:2px solid var(--co-border);
+  transition:all 0.3s;
+}
+.right-tile:hover { transform:translateY(-3px); border-color:var(--co-teal); }
+.right-tile-ico { font-size:2.2rem; margin-bottom:8px; display:block; }
+.right-tile-name { font-family:'Fredoka One',cursive; font-size:0.82rem; color:var(--co-navy); }
+
+/* ── SHOP GRID ── */
+.shop-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:18px; margin:20px 0; }
+.product-card {
+  background:var(--co-white); border-radius:var(--radius-xl); padding:22px 18px;
+  box-shadow:var(--shadow-lg); border:2px solid var(--co-border); text-align:center;
+  transition:all 0.3s; cursor:pointer; position:relative; overflow:hidden;
+}
+.product-card:hover { transform:translateY(-4px); border-color:var(--co-orange); box-shadow:0 16px 48px rgba(26,46,74,0.18); }
+.product-emoji { font-size:3.5rem; margin-bottom:12px; display:block; animation:float 3s ease-in-out infinite; }
+.product-name { font-family:'Fredoka One',cursive; font-size:1.1rem; color:var(--co-navy); }
+.product-code { font-size:0.72rem; font-weight:700; color:var(--co-muted); margin:4px 0; letter-spacing:1px; }
+.product-price { font-family:'Fredoka One',cursive; font-size:1.3rem; color:var(--co-green); margin:6px 0; }
+.product-stars { color:var(--co-yellow); font-size:0.9rem; margin-bottom:10px; display:block; }
+.buy-btn {
+  background:linear-gradient(135deg,var(--co-orange),var(--co-orange2)); color:#fff;
+  border:none; padding:10px 24px; border-radius:50px; font-family:'Nunito',sans-serif;
+  font-weight:800; font-size:0.85rem; cursor:pointer; transition:all 0.2s;
+}
+.buy-btn:hover { transform:scale(1.05); box-shadow:0 4px 16px rgba(255,107,26,0.4); }
+
+/* ── ORDER CONFIRMATION ── */
+.order-box {
+  background:linear-gradient(135deg,#F0FFF5,#E8FFF0); border-radius:var(--radius-xl);
+  padding:30px; text-align:center; border:2px solid var(--co-green); margin:20px 0;
+  animation:bounceIn 0.5s ease;
+}
+.order-num { font-family:'Fredoka One',cursive; font-size:1.8rem; color:var(--co-green); }
+.order-detail { font-size:0.88rem; font-weight:600; color:var(--co-muted); margin:6px 0; }
+
+/* ── FAULT ALERT ── */
+.fault-box {
+  background:linear-gradient(135deg,#FFF0F1,#FFE4E6); border-radius:var(--radius-xl);
+  padding:30px; text-align:center; border:2px solid var(--co-red); margin:20px 0;
+  animation:shake 0.5s ease;
+}
+.fault-emoji { font-size:3rem; margin-bottom:10px; display:block; }
+.fault-title { font-family:'Fredoka One',cursive; font-size:1.3rem; color:var(--co-red); }
+.fault-desc { font-size:0.9rem; font-weight:600; color:#64748B; margin:10px 0; }
+
+/* ── DECISION OPTIONS ── */
+.decision-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:20px 0; }
+.decision-opt {
+  background:var(--co-white); border-radius:var(--radius-lg); padding:20px 16px;
+  text-align:center; box-shadow:var(--shadow-md); border:2px solid var(--co-border);
+  cursor:pointer; transition:all 0.3s; font-weight:700; font-size:0.88rem;
+}
+.decision-opt:hover { transform:translateY(-3px); }
+.decision-opt.correct { border-color:var(--co-green); background:#F0FFF5; color:var(--co-green); }
+.decision-opt.wrong { border-color:var(--co-red); background:#FFF0F1; color:var(--co-red); animation:shake 0.4s; }
+.decision-opt .dec-ico { font-size:2rem; display:block; margin-bottom:8px; }
+
+/* ── GRADE 1-3 RETURN FORM ── */
+.return-form { max-width:500px; margin:0 auto; }
+.form-field { margin-bottom:18px; }
+.form-label { font-weight:800; font-size:0.82rem; color:var(--co-muted); margin-bottom:6px; display:block; text-transform:uppercase; letter-spacing:1px; }
+.form-value {
+  background:#F0F4F8; border-radius:var(--radius-md); padding:12px 16px;
+  font-weight:700; color:var(--co-navy); font-size:0.95rem; border:2px solid var(--co-border);
+}
+.choice-btns { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin:16px 0; }
+.choice-btn {
+  background:var(--co-white); border:2px solid var(--co-border); border-radius:var(--radius-lg);
+  padding:16px 20px; cursor:pointer; transition:all 0.3s; text-align:center; min-width:140px;
+  font-family:'Nunito',sans-serif; font-weight:700; font-size:0.88rem;
+}
+.choice-btn:hover { border-color:var(--co-orange); transform:translateY(-2px); }
+.choice-btn.selected { border-color:var(--co-orange); background:#FFF5F0; color:var(--co-orange); }
+.choice-btn .choice-ico { font-size:2rem; display:block; margin-bottom:6px; }
+
+/* ── GRADE 4-8 EMAIL FORM ── */
+.email-form { max-width:600px; margin:0 auto; }
+.email-field { margin-bottom:14px; }
+.email-label { font-weight:800; font-size:0.78rem; color:var(--co-muted); margin-bottom:4px; display:block; text-transform:uppercase; letter-spacing:1px; }
+.email-input {
+  width:100%; padding:12px 16px; border:2px solid var(--co-border); border-radius:var(--radius-md);
+  font-family:'Nunito',sans-serif; font-size:0.9rem; font-weight:600; transition:border-color 0.2s;
+}
+.email-input:focus { outline:none; border-color:var(--co-orange); }
+.email-textarea {
+  width:100%; min-height:160px; padding:14px 16px; border:2px solid var(--co-border);
+  border-radius:var(--radius-md); font-family:'Nunito',sans-serif; font-size:0.9rem;
+  font-weight:600; resize:vertical; line-height:1.7; transition:border-color 0.2s;
+}
+.email-textarea:focus { outline:none; border-color:var(--co-orange); }
+.check-result {
+  border-radius:var(--radius-lg); padding:18px 20px; margin:16px 0; font-weight:700;
+  font-size:0.88rem; display:none;
+}
+.check-result.pass { background:#F0FFF5; border:2px solid var(--co-green); color:#166534; display:block; }
+.check-result.fail { background:#FFF0F1; border:2px solid var(--co-red); color:#991B1B; display:block; }
+.check-item { display:flex; align-items:center; gap:8px; margin:6px 0; }
+
+/* ── BADGE / CERTIFICATE ── */
+.badge-wrap {
+  text-align:center; padding:40px 20px; animation:bounceIn 0.6s ease;
+}
+.badge-icon { font-size:5rem; display:block; margin-bottom:16px; animation:pulse 2s ease infinite; }
+.badge-title { font-family:'Fredoka One',cursive; font-size:1.8rem; color:var(--co-navy); }
+.badge-sub { font-size:0.95rem; font-weight:600; color:var(--co-muted); margin-top:8px; }
+.certificate-box {
+  background:linear-gradient(135deg,#FFFBF0,#FFF5E6); border:3px solid var(--co-yellow);
+  border-radius:var(--radius-xl); padding:36px 28px; margin:20px auto; max-width:500px;
+  text-align:center; position:relative;
+}
+.certificate-box::before {
+  content:''; position:absolute; inset:6px; border:2px dashed var(--co-yellow); border-radius:calc(var(--radius-xl) - 4px); pointer-events:none;
+}
+.cert-star { font-size:3rem; display:block; margin-bottom:12px; }
+.cert-title { font-family:'Fredoka One',cursive; font-size:1.4rem; color:var(--co-navy); }
+.cert-body { font-size:0.88rem; font-weight:600; color:var(--co-muted); margin:10px 0; line-height:1.6; }
+
+/* ── SUMMARY ── */
+.summary-list { list-style:none; padding:0; }
+.summary-list li {
+  display:flex; align-items:center; gap:10px; padding:12px 16px; margin-bottom:8px;
+  background:var(--co-white); border-radius:var(--radius-md); border:1.5px solid var(--co-border);
+  font-weight:700; font-size:0.9rem;
+}
+.summary-list li .sum-ico { font-size:1.3rem; flex-shrink:0; }
+
+/* ── SECTION DIVIDER ── */
+.section-step {
+  display:flex; align-items:center; gap:12px; margin:28px 0 16px; padding:0 4px;
+}
+.step-circle {
+  width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:'Fredoka One',cursive; font-size:0.9rem; color:#fff; flex-shrink:0;
+}
+.step-circle.orange { background:var(--co-orange); }
+.step-circle.teal { background:var(--co-teal); }
+.step-circle.purple { background:var(--co-purple); }
+.step-circle.green { background:var(--co-green); }
+.step-circle.navy { background:var(--co-navy); }
+.step-text { font-family:'Fredoka One',cursive; font-size:1.05rem; color:var(--co-navy); }
+
+/* ── HIDDEN ── */
+.hidden { display:none !important; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:520px){
+  .shop-grid { grid-template-columns:1fr; }
+  .rights-grid { grid-template-columns:repeat(2,1fr); }
+  .decision-grid { grid-template-columns:1fr 1fr; }
+  .grade-selector { flex-direction:column; align-items:center; }
+  .grade-card { max-width:100%; min-width:0; }
+  .choice-btns { flex-direction:column; align-items:center; }
+}
+
+/* ── TF STYLES ── */
+.tf-item { background:var(--co-white); border-radius:var(--radius-lg); padding:16px 18px; margin-bottom:12px; border:1.5px solid var(--co-border); }
+.tf-statement { font-weight:700; font-size:0.92rem; margin-bottom:10px; line-height:1.5; }
+.tf-btns { display:flex; gap:10px; }
+.tf-btn {
+  padding:8px 18px; border-radius:50px; border:2px solid var(--co-border); background:var(--co-white);
+  font-family:'Nunito',sans-serif; font-weight:800; font-size:0.82rem; cursor:pointer; transition:all 0.2s;
+}
+.tf-btn:hover { transform:translateY(-1px); }
+.true-btn:hover { border-color:var(--co-green); color:var(--co-green); }
+.false-btn:hover { border-color:var(--co-red); color:var(--co-red); }
+.selected-true { background:var(--co-green)!important; color:#fff!important; border-color:var(--co-green)!important; }
+.selected-false { background:var(--co-red)!important; color:#fff!important; border-color:var(--co-red)!important; }
+.reveal-correct { background:var(--co-green)!important; color:#fff!important; border-color:var(--co-green)!important; animation:pulse 0.5s; }
+.tf-feedback { font-size:0.82rem; font-weight:700; padding:0; max-height:0; overflow:hidden; transition:all 0.3s; }
+.tf-feedback.show { padding:10px 0 0; max-height:200px; }
+.tf-feedback.right { color:var(--co-green); }
+.tf-feedback.wrong { color:var(--co-red); }
+
+/* ── MATCH STYLES ── */
+.match-wrap { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.match-col { display:flex; flex-direction:column; gap:10px; }
+.match-left-item, .match-right-item {
+  padding:14px 16px; border-radius:var(--radius-md); border:2px solid var(--co-border);
+  background:var(--co-white); cursor:pointer; font-weight:700; font-size:0.85rem;
+  transition:all 0.2s; display:flex; align-items:center; gap:8px;
+}
+.match-left-item:hover, .match-right-item:hover { border-color:var(--co-orange); }
+.match-left-item.sel, .match-right-item.sel { border-color:var(--co-orange); background:#FFF5F0; }
+.match-left-item.matched, .match-right-item.matched { border-color:var(--co-green); background:#F0FFF5; opacity:0.7; pointer-events:none; }
+.match-left-item.shk, .match-right-item.shk { animation:shake 0.4s; border-color:var(--co-red); }
+.match-result { text-align:center; font-family:'Fredoka One',cursive; font-size:1.2rem; color:var(--co-green); margin-top:16px; display:none; }
+.match-result.show { display:block; animation:bounceIn 0.4s; }
+
+/* ── SPOT STYLES ── */
+.spot-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:12px; }
+.spot-item {
+  background:var(--co-white); border-radius:var(--radius-lg); padding:18px 12px;
+  text-align:center; border:2px solid var(--co-border); cursor:pointer; transition:all 0.2s; position:relative;
+}
+.spot-item:hover { border-color:var(--co-orange); transform:translateY(-2px); }
+.spot-item .s-ico { font-size:2rem; display:block; margin-bottom:6px; }
+.spot-item .s-name { font-weight:700; font-size:0.8rem; color:var(--co-navy); }
+.spot-item .s-badge { position:absolute; top:6px; right:8px; font-size:1rem; }
+.spot-item.hit { border-color:var(--co-green); background:#F0FFF5; }
+.spot-item.miss { border-color:var(--co-red); background:#FFF0F1; animation:shake 0.3s; }
+#spotStatus { text-align:center; font-weight:800; margin-top:14px; font-size:0.9rem; color:var(--co-navy); }
+
+/* ── FILL BLANKS STYLES ── */
+.fitb-sentence { background:var(--co-white); border-radius:var(--radius-md); padding:14px 16px; margin-bottom:10px; font-weight:700; font-size:0.9rem; line-height:1.7; border:1.5px solid var(--co-border); }
+.fitb-blank {
+  display:inline-block; min-width:90px; padding:3px 10px; border-bottom:3px dashed var(--co-orange);
+  color:var(--co-orange); font-weight:800; cursor:pointer; transition:all 0.2s; text-align:center;
+}
+.fitb-blank.correct { border-color:var(--co-green); color:var(--co-green); background:#F0FFF5; border-style:solid; }
+.fitb-blank.wrong { border-color:var(--co-red); color:var(--co-red); animation:shake 0.3s; }
+.word-bank { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; justify-content:center; }
+.wb-chip {
+  padding:8px 16px; border-radius:50px; background:var(--co-white); border:2px solid var(--co-border);
+  font-weight:700; font-size:0.82rem; cursor:pointer; transition:all 0.2s;
+}
+.wb-chip:hover { border-color:var(--co-orange); }
+.wb-chip.used { opacity:0.4; pointer-events:none; text-decoration:line-through; }
+
+/* ── QUIZ STYLES ── */
+.q-bar-wrap { height:6px; background:#E2E8F0; border-radius:50px; margin:0 0 16px; overflow:hidden; }
+#qBar { height:100%; background:linear-gradient(90deg,var(--co-orange),var(--co-teal)); border-radius:50px; transition:width 0.4s; width:0%; }
+.q-meta { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+#qLvl { font-weight:800; font-size:0.78rem; color:var(--co-muted); }
+#qCounter { font-weight:800; font-size:0.78rem; color:var(--co-muted); }
+#qScoreBadge { font-family:'Fredoka One',cursive; font-size:0.88rem; color:var(--co-yellow); }
+.q-card { background:var(--co-white); border-radius:var(--radius-xl); padding:24px; margin-bottom:16px; box-shadow:var(--shadow-md); border:1.5px solid var(--co-border); }
+#qEmo { font-size:2rem; display:block; text-align:center; margin-bottom:10px; }
+#qTxt { font-weight:700; font-size:1rem; text-align:center; line-height:1.5; }
+#qOpts { display:grid; gap:10px; margin-top:16px; }
+.opt-btn {
+  display:flex; align-items:center; gap:10px; padding:14px 18px;
+  border-radius:var(--radius-md); border:2px solid var(--co-border); background:var(--co-white);
+  font-family:'Nunito',sans-serif; font-weight:700; font-size:0.88rem; cursor:pointer; transition:all 0.2s; text-align:left;
+}
+.opt-btn:hover { border-color:var(--co-orange); }
+.opt-btn .opt-icon { font-size:1.1rem; }
+.opt-btn.right { border-color:var(--co-green); background:#F0FFF5; color:var(--co-green); }
+.opt-btn.wrong { border-color:var(--co-red); background:#FFF0F1; color:var(--co-red); }
+.q-feedback { font-size:0.85rem; font-weight:700; padding:0; max-height:0; overflow:hidden; transition:all 0.3s; text-align:center; border-radius:var(--radius-md); }
+.q-feedback.show { padding:14px; max-height:200px; margin-bottom:12px; }
+.q-feedback.ok { background:#F0FFF5; color:#166534; }
+.q-feedback.no { background:#FFF0F1; color:#991B1B; }
+#qNextBtn { display:none; text-align:center; }
+#qdots { display:flex; gap:5px; justify-content:center; margin:12px 0; flex-wrap:wrap; }
+.q-dot { width:10px; height:10px; border-radius:50%; background:#E2E8F0; transition:all 0.2s; }
+.q-dot.curr { background:var(--co-orange); transform:scale(1.3); }
+.q-dot.ok { background:var(--co-green); }
+.q-dot.no { background:var(--co-red); }
+#qScoreScreen { display:none; text-align:center; padding:30px 20px; }
+#sBig { font-family:'Fredoka One',cursive; font-size:4rem; color:var(--co-orange); }
+#sMsg { font-weight:700; font-size:1.1rem; color:var(--co-navy); margin:8px 0; }
+#sStars { font-size:1.5rem; }
+#sTrophy { font-size:3rem; display:block; margin:12px 0; }
+
+/* ── SCENARIOS ── */
+.scenario-card { background:var(--co-white); border-radius:var(--radius-xl); padding:20px; margin-bottom:16px; box-shadow:var(--shadow-md); border:1.5px solid var(--co-border); }
+.scenario-q { font-weight:700; font-size:0.92rem; line-height:1.5; margin-bottom:14px; }
+.sq-num { display:inline-block; background:var(--co-orange); color:#fff; font-family:'Fredoka One',cursive; font-size:0.75rem; padding:2px 10px; border-radius:50px; margin-right:8px; }
+.scenario-choices { display:grid; gap:8px; }
+.scenario-opt {
+  padding:12px 16px; border-radius:var(--radius-md); border:2px solid var(--co-border);
+  background:var(--co-white); cursor:pointer; font-weight:700; font-size:0.85rem; transition:all 0.2s;
+}
+.scenario-opt:hover { border-color:var(--co-orange); }
+.scenario-opt.picked-right { border-color:var(--co-green); background:#F0FFF5; color:var(--co-green); }
+.scenario-opt.picked-wrong { border-color:var(--co-red); background:#FFF0F1; color:var(--co-red); }
+.scenario-opt.show-right { border-color:var(--co-green); background:#F0FFF5; }
+.scenario-explain { font-size:0.82rem; font-weight:700; max-height:0; overflow:hidden; transition:all 0.3s; }
+.scenario-explain.show { max-height:200px; padding:12px 0 0; color:var(--co-navy); }
+</style>
+</head>
+<body>
+
+<!-- CONFETTI -->
+<div id="confWrap" style="position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden"></div>
+
+<!-- TOP BAR -->
+<div class="codju-topbar">
+  <div class="codju-logo">cod<span>ju</span></div>
+  <div class="codju-badge">World Consumer Rights Day 🛒</div>
+</div>
+
+<!-- HERO -->
+<div class="chapter-hero">
+  <div class="ch-num">🛡️ Special Activity</div>
+  <div class="ch-title">Know Your <span>Consumer Rights!</span></div>
+  <div class="ch-sub">Learn · Shop · Solve · 7 Activities</div>
+</div>
+
+<!-- PROGRESS BAR -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <div class="progress-label">PROGRESS</div>
+    <div class="progress-track"><div class="progress-fill" id="progressBar"></div></div>
+    <div class="progress-pct" id="progressPct">0%</div>
+  </div>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar">
+  <button class="tab-btn active" onclick="showTab(0,this)"><span class="t-ico">📖</span>Learn</button>
+  <button class="tab-btn" onclick="showTab(1,this)"><span class="t-ico">🛒</span>Shop</button>
+  <button class="tab-btn" onclick="showTab(2,this)"><span class="t-ico">🔍</span>Spot It</button>
+  <button class="tab-btn" onclick="showTab(3,this)"><span class="t-ico">✏️</span>Fill Blanks</button>
+  <button class="tab-btn" onclick="showTab(4,this)"><span class="t-ico">✅</span>True/False</button>
+  <button class="tab-btn" onclick="showTab(5,this)"><span class="t-ico">🔗</span>Match It</button>
+  <button class="tab-btn" onclick="showTab(6,this)"><span class="t-ico">💡</span>Scenarios</button>
+  <button class="tab-btn" onclick="showTab(7,this)"><span class="t-ico">🧠</span>Quiz</button>
+</div>
+
+<div class="page-wrap">
+
+<!-- ═══════════ TAB 0: LEARN ═══════════ -->
+<div class="activity active" id="tab-0">
+  <div class="act-header">
+    <div class="act-icon-wrap navy">📖</div>
+    <div class="act-meta">
+      <div class="act-label">Read First</div>
+      <div class="act-title">Learn About Consumer Rights</div>
+      <div class="act-sub">Read carefully before trying the activities</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="concept-box orange">
+      <div class="cb-title">🧑 Who is a Consumer?</div>
+      <div class="cb-body">A <b>consumer</b> is any person who buys goods or services for personal use. When you buy shoes, books, food, or a water bottle — you are a consumer! Every time you shop at a store or online, you have special rights.</div>
+    </div>
+    <div class="concept-box teal">
+      <div class="cb-title">🛡️ What are Consumer Rights?</div>
+      <div class="cb-body">Consumer rights are rules that protect you when you buy things. If a company sells you a bad product or cheats you, these rights help you fight back! India has a special law called the <b>Consumer Protection Act</b> to keep buyers safe.</div>
+    </div>
+
+    <div class="rights-grid">
+      <div class="right-tile">
+        <span class="right-tile-ico">🛡️</span>
+        <div class="right-tile-name">Right to Safety</div>
+      </div>
+      <div class="right-tile">
+        <span class="right-tile-ico">📋</span>
+        <div class="right-tile-name">Right to Information</div>
+      </div>
+      <div class="right-tile">
+        <span class="right-tile-ico">🤚</span>
+        <div class="right-tile-name">Right to Choose</div>
+      </div>
+      <div class="right-tile">
+        <span class="right-tile-ico">📢</span>
+        <div class="right-tile-name">Right to be Heard</div>
+      </div>
+      <div class="right-tile">
+        <span class="right-tile-ico">⚖️</span>
+        <div class="right-tile-name">Right to Seek Redressal</div>
+      </div>
+      <div class="right-tile">
+        <span class="right-tile-ico">🎓</span>
+        <div class="right-tile-name">Right to Consumer Education</div>
+      </div>
+    </div>
+
+    <div class="concept-box purple">
+      <div class="cb-title">⚖️ Right to Seek Redressal</div>
+      <div class="cb-body">If you get a <b>faulty product</b>, you can: ask for a <b>return</b>, request an <b>exchange</b>, demand a <b>refund</b>, or file a <b>complaint</b>. You should never ignore a bad product — speak up!</div>
+    </div>
+    <div class="concept-box yellow">
+      <div class="cb-title">📧 How to Complain?</div>
+      <div class="cb-body">You can complain by: calling customer care, writing an email with your order details, visiting the store, or filing a complaint on the <b>National Consumer Helpline (1800-11-4000)</b> or the consumer forum.</div>
+    </div>
+    <div class="concept-box green">
+      <div class="cb-title">📅 World Consumer Rights Day</div>
+      <div class="cb-body">Every year on <b>March 15</b>, we celebrate World Consumer Rights Day. It reminds everyone that consumers have power and should always stand up for fair treatment!</div>
+    </div>
+  </div>
+  <div style="text-align:center">
+    <button class="co-btn co-btn-orange" onclick="showTab(1,document.querySelectorAll('.tab-btn')[1])">Start Shopping Activity →</button>
+  </div>
+</div>
+
+<!-- ═══════════ TAB 1: SHOPPING SIMULATION ═══════════ -->
+<div class="activity" id="tab-1">
+  <div class="act-header">
+    <div class="act-icon-wrap orange">🛒</div>
+    <div class="act-meta">
+      <div class="act-label">Activity 1</div>
+      <div class="act-title">Shopping Simulation</div>
+      <div class="act-sub">Buy a product, then handle a problem!</div>
+    </div>
+  </div>
+
+  <!-- STEP 1: Grade Select -->
+  <div id="shopStep0" class="card">
+    <div class="section-step"><div class="step-circle orange">1</div><div class="step-text">Select Your Grade</div></div>
+    <div class="grade-selector">
+      <div class="grade-card" onclick="selectGrade('junior',this)">
+        <span class="grade-card-emoji">🧒</span>
+        <div class="grade-card-title">Grade 1–3</div>
+        <div class="grade-card-sub">Return & Exchange Activity</div>
+      </div>
+      <div class="grade-card" onclick="selectGrade('senior',this)">
+        <span class="grade-card-emoji">🧑‍🎓</span>
+        <div class="grade-card-title">Grade 4–8</div>
+        <div class="grade-card-sub">Write a Complaint Email</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Shop -->
+  <div id="shopStep1" class="card hidden">
+    <div class="section-step"><div class="step-circle teal">2</div><div class="step-text">Pick a Product to Buy</div></div>
+    <div class="shop-grid" id="shopGrid"></div>
+  </div>
+
+  <!-- STEP 3: Order Confirmation -->
+  <div id="shopStep2" class="hidden">
+    <div class="order-box">
+      <div style="font-size:3rem;margin-bottom:10px">📦</div>
+      <div style="font-family:'Fredoka One',cursive;font-size:1.1rem;color:var(--co-navy);margin-bottom:6px">Order Placed Successfully!</div>
+      <div class="order-num" id="orderNumDisplay"></div>
+      <div class="order-detail" id="orderProductDisplay"></div>
+      <div class="order-detail" id="orderCodeDisplay"></div>
+      <div style="margin-top:14px;color:var(--co-green);font-weight:800;font-size:1rem">✅ Your order has been delivered!</div>
+    </div>
+    <div style="text-align:center;margin:16px 0">
+      <button class="co-btn co-btn-orange" onclick="showFault()">Open Package 📦</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Fault -->
+  <div id="shopStep3" class="hidden">
+    <div class="fault-box">
+      <span class="fault-emoji" id="faultEmoji">😱</span>
+      <div class="fault-title" id="faultTitle">Oh no! Something went wrong!</div>
+      <div class="fault-desc" id="faultDesc"></div>
+    </div>
+    <div class="card">
+      <div class="section-step"><div class="step-circle purple">3</div><div class="step-text">What should you do now?</div></div>
+      <div class="decision-grid" id="decisionGrid">
+        <div class="decision-opt" onclick="pickDecision(this,false)"><span class="dec-ico">🤷</span>Ignore it</div>
+        <div class="decision-opt" onclick="pickDecision(this,false)"><span class="dec-ico">🗑️</span>Throw the product</div>
+        <div class="decision-opt" onclick="pickDecision(this,true)"><span class="dec-ico">🔄</span>Ask for return / exchange</div>
+        <div class="decision-opt" onclick="pickDecision(this,true)"><span class="dec-ico">📞</span>Complain to customer care</div>
+      </div>
+      <div id="decisionFeedback" class="hidden" style="text-align:center;margin-top:16px"></div>
+    </div>
+  </div>
+
+  <!-- STEP 5A: Grade 1-3 Return Form -->
+  <div id="shopStep4A" class="hidden">
+    <div class="card">
+      <div class="section-step"><div class="step-circle green">4</div><div class="step-text">Request a Return or Exchange</div></div>
+      <div class="return-form">
+        <div class="form-field">
+          <span class="form-label">📦 Order Number</span>
+          <div class="form-value" id="returnOrderNum"></div>
+        </div>
+        <div class="form-field">
+          <span class="form-label">🏷️ Product Code</span>
+          <div class="form-value" id="returnProdCode"></div>
+        </div>
+        <div class="form-field">
+          <span class="form-label">What do you want?</span>
+          <div class="choice-btns" id="returnChoice">
+            <div class="choice-btn" onclick="selectReturn(this,'return')"><span class="choice-ico">↩️</span>Return Product</div>
+            <div class="choice-btn" onclick="selectReturn(this,'exchange')"><span class="choice-ico">🔄</span>Exchange Product</div>
+          </div>
+        </div>
+        <div class="form-field" id="reasonSection" class="hidden">
+          <span class="form-label">Why are you returning it?</span>
+          <div class="choice-btns" id="reasonChoice">
+            <div class="choice-btn" onclick="selectReason(this,'broken')"><span class="choice-ico">💔</span>Broken product</div>
+            <div class="choice-btn" onclick="selectReason(this,'wrong')"><span class="choice-ico">❌</span>Wrong item</div>
+            <div class="choice-btn" onclick="selectReason(this,'bad')"><span class="choice-ico">👎</span>Bad quality</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:20px">
+          <button class="co-btn co-btn-teal" id="submitReturnBtn" onclick="submitReturn()" style="display:none">Submit Request ✅</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5B: Grade 4-8 Email Form -->
+  <div id="shopStep4B" class="hidden">
+    <div class="card">
+      <div class="section-step"><div class="step-circle green">4</div><div class="step-text">Write a Complaint Email</div></div>
+      <div style="background:#F0FAFA;border-radius:var(--radius-md);padding:14px 16px;margin-bottom:16px;font-size:0.85rem;font-weight:600;color:var(--co-navy)">
+        📌 <b>Your Order Details:</b><br>
+        Order: <span id="emailOrderNum" style="color:var(--co-orange)"></span> &nbsp;|&nbsp;
+        Product: <span id="emailProdName" style="color:var(--co-orange)"></span> &nbsp;|&nbsp;
+        Code: <span id="emailProdCode" style="color:var(--co-orange)"></span>
+      </div>
+      <div class="email-form">
+        <div class="email-field">
+          <span class="email-label">To</span>
+          <div class="form-value">support@schoolmart.in</div>
+        </div>
+        <div class="email-field">
+          <span class="email-label">Subject</span>
+          <input class="email-input" id="emailSubject" type="text" placeholder="Write a subject line...">
+        </div>
+        <div class="email-field">
+          <span class="email-label">Email Body</span>
+          <textarea class="email-textarea" id="emailBody" placeholder="Write your complaint email here...&#10;&#10;Include:&#10;• Your order number&#10;• What problem you found&#10;• What you want (replacement or refund)"></textarea>
+        </div>
+        <div style="text-align:center;margin-top:16px">
+          <button class="co-btn co-btn-teal" onclick="checkEmail()">Check Email ✅</button>
+        </div>
+        <div class="check-result" id="emailResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6: Badge -->
+  <div id="shopStep5" class="hidden">
+    <div class="card">
+      <div class="badge-wrap">
+        <span class="badge-icon" id="badgeIcon">⭐</span>
+        <div class="badge-title" id="badgeTitle">Consumer Hero!</div>
+        <div class="badge-sub" id="badgeSub">You used your consumer rights correctly!</div>
+      </div>
+      <div class="certificate-box">
+        <span class="cert-star">🏅</span>
+        <div class="cert-title" id="certTitle">Certified Smart Consumer</div>
+        <div class="cert-body" id="certBody">
+          You learned how to handle faulty products and stand up for your rights. Great job!
+        </div>
+        <div style="margin-top:14px;font-family:'Fredoka One',cursive;font-size:0.82rem;color:var(--co-muted)">World Consumer Rights Day · <span id="certDate"></span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-step"><div class="step-circle navy">📝</div><div class="step-text">What You Learned Today</div></div>
+      <ul class="summary-list">
+        <li><span class="sum-ico">🧑</span> What a consumer is</li>
+        <li><span class="sum-ico">🛡️</span> What consumer rights are</li>
+        <li><span class="sum-ico">🔄</span> How to return faulty products</li>
+        <li><span class="sum-ico">📧</span> How to write a complaint email</li>
+        <li><span class="sum-ico">📞</span> Where to seek help (Consumer Helpline)</li>
+      </ul>
+    </div>
+    <div style="text-align:center">
+      <button class="co-btn co-btn-orange" onclick="showTab(2,document.querySelectorAll('.tab-btn')[2])">Continue to More Activities →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════ TAB 2: SPOT IT ═══════════ -->
+<div class="activity" id="tab-2">
+  <div class="act-header">
+    <div class="act-icon-wrap teal">🔍</div>
+    <div class="act-meta">
+      <div class="act-label">Activity 2</div>
+      <div class="act-title">Spot the Consumer Rights!</div>
+      <div class="act-sub">Tap only the items that are real consumer rights</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="spot-grid" id="spotGrid"></div>
+    <div id="spotStatus">Found: <span id="spotFound">0</span> / <span id="spotTotal"></span> rights</div>
+    <div style="text-align:center;margin-top:12px"><button class="co-btn co-btn-outline" onclick="resetSpot()">🔄 Reset</button></div>
+  </div>
+</div>
+
+<!-- ═══════════ TAB 3: FILL BLANKS ═══════════ -->
+<div class="activity" id="tab-3">
+  <div class="act-header">
+    <div class="act-icon-wrap purple">✏️</div>
+    <div class="act-meta">
+      <div class="act-label">Activity 3</div>
+      <div class="act-title">Fill in the Blanks</div>
+      <div class="act-sub">Tap a word, then tap the blank to fill it</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="word-bank" id="wordBank"></div>
+    <div id="fitbContainer"></div>
+    <div id="fitbScore" style="text-align:center;font-weight:800;margin-top:14px;color:var(--co-navy)"></div>
+    <div style="text-align:center;margin-top:12px"><button class="co-btn co-btn-outline" onclick="resetFITB()">🔄 Reset</button></div>
+  </div>
+</div>
+
+<!-- ═══════════ TAB 4: TRUE/FALSE ═══════════ -->
+<div class="activity" id="tab-4">
+  <div class="act-header">
+    <div class="act-icon-wrap yellow">✅</div>
+    <div class="act-meta">
+      <div class="act-label">Activity 4</div>
+      <div class="act-title">True or False</div>
+      <div class="act-sub">Is the statement correct? You decide!</div>
+    </div>
+  </div>
+  <div class="card">
+    <div id="tfContainer"></div>
+  </div>
+</div>
+
+<!-- ═══════════ TAB 5: MATCH IT ═══════════ -->
+<div class="activity" id="tab-5">
+  <div class="act-header">
+    <div class="act-icon-wrap green">🔗</div>
+    <div class="act-meta">
+      <div class="act-label">Activity 5</div>
+      <div class="act-title">Match the Rights!</div>
+      <div class="act-sub">Tap a right on the left, then its meaning on the right</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="match-wrap" id="matchWrap"></div>
+    <div class="match-result" id="matchResult"></div>
+    <div style="text-align:center;margin-top:12px"><button class="co-btn co-btn-outline" onclick="resetMatch()">🔄 Reset</button></div>
+  </div>
+</div>
+
+<!-- ═══════════ TAB 6: SCENARIOS ═══════════ -->
+<div class="activity" id="tab-6">
+  <div class="act-header">
+    <div class="act-icon-wrap red">💡</div>
+    <div class="act-meta">
+      <div class="act-label">Activity 6</div>
+      <div class="act-title">Real-Life Scenarios</div>
+      <div class="act-sub">What would you do in these situations?</div>
+    </div>
+  </div>
+  <div class="card">
+    <div id="scenarioContainer"></div>
+  </div>
+</div>
+
+<!-- ═══════════ TAB 7: QUIZ ═══════════ -->
+<div class="activity" id="tab-7">
+  <div class="act-header">
+    <div class="act-icon-wrap indigo">🧠</div>
+    <div class="act-meta">
+      <div class="act-label">Activity 7</div>
+      <div class="act-title">Consumer Rights Quiz</div>
+      <div class="act-sub">Test your knowledge — Easy → Medium → Hard</div>
+    </div>
+  </div>
+  <div class="card">
+    <div id="quizMain">
+      <div class="q-bar-wrap"><div id="qBar"></div></div>
+      <div class="q-meta"><span id="qLvl"></span><span id="qScoreBadge">⭐ 0</span><span id="qCounter"></span></div>
+      <div id="qdots"></div>
+      <div class="q-card"><div id="qEmo"></div><div id="qTxt"></div><div id="qOpts"></div></div>
+      <div class="q-feedback" id="qFeed"></div>
+      <div id="qNextBtn"><button class="co-btn co-btn-orange" onclick="nextQ()">Next →</button></div>
+    </div>
+    <div id="qScoreScreen">
+      <div id="sTrophy"></div>
+      <div style="font-family:'Fredoka One',cursive;font-size:1rem;color:var(--co-muted)">Your Score</div>
+      <div id="sBig"></div>
+      <div style="font-size:0.85rem;font-weight:600;color:var(--co-muted)">out of <span id="qTotal"></span></div>
+      <div id="sStars"></div>
+      <div id="sMsg"></div>
+      <button class="co-btn co-btn-orange" onclick="initQuiz()" style="margin-top:16px">Try Again 🔁</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-wrap -->
+
+<script>
+// ═══════════ CORE FUNCTIONS ═══════════
+function showTab(i, btn){
+  document.querySelectorAll('.activity').forEach(a=>a.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+i).classList.add('active');
+  btn.classList.add('active');
+  btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function confetti(){
+  const w=document.getElementById('confWrap');
+  const cols=['#FF6B1A','#00B4A6','#FFD23F','#7B5EA7','#2DC653','#fff','#E63946'];
+  for(let i=0;i<70;i++){
+    const p=document.createElement('div'); p.className='conf-p';
+    const c=cols[Math.floor(Math.random()*cols.length)];
+    p.style.cssText=`left:${Math.random()*100}vw;top:-10px;background:${c};width:${6+Math.random()*10}px;height:${6+Math.random()*10}px;border-radius:${Math.random()>.5?'50%':'3px'};animation-duration:${1.5+Math.random()*2.5}s;animation-delay:${Math.random()*.6}s`;
+    w.appendChild(p); setTimeout(()=>p.remove(),5000);
+  }
+}
+
+function playSuccess(){
+  try {
+    const ctx = new (window.AudioContext||window.webkitAudioContext)();
+    const notes = [523.25, 659.25, 783.99];
+    notes.forEach((freq, i) => {
+      const osc = ctx.createOscillator(); const gain = ctx.createGain();
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.frequency.value = freq; osc.type = 'sine';
+      gain.gain.setValueAtTime(0.15, ctx.currentTime + i*0.15);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i*0.15 + 0.4);
+      osc.start(ctx.currentTime + i*0.15); osc.stop(ctx.currentTime + i*0.15 + 0.4);
+    });
+  } catch(e){}
+}
+
+let completedTabs = new Set();
+function markComplete(tabIdx){
+  completedTabs.add(tabIdx);
+  const total = 8;
+  const pct = Math.round((completedTabs.size/total)*100);
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('progressPct').textContent = pct+'%';
+}
+
+// ═══════════ SHOPPING SIMULATION DATA ═══════════
+const products = [
+  {name:'School Shoes', code:'SH-48291', price:899, rating:4, emoji:'👟', fault:'Fake product received! These are not original shoes.', faultEmoji:'😡'},
+  {name:'School Bag', code:'BG-73921', price:1299, rating:4.5, emoji:'🎒', fault:'Wrong colour received! You ordered blue but got pink.', faultEmoji:'😤'},
+  {name:'School Uniform', code:'UN-66310', price:650, rating:3.5, emoji:'👔', fault:'Used uniform received! It has stains and is worn out.', faultEmoji:'🤢'},
+  {name:'School Books', code:'BK-55120', price:450, rating:4, emoji:'📚', fault:'Torn pages found! Many pages are damaged and missing.', faultEmoji:'😟'},
+  {name:'Water Bottle', code:'WB-84762', price:350, rating:4.5, emoji:'🍶', fault:'Broken bottle! The cap is cracked and it leaks water.', faultEmoji:'😰'}
+];
+
+let selectedGrade = null;
+let selectedProduct = null;
+let orderNumber = '';
+let returnType = null;
+let returnReason = null;
+
+function genOrderNum(){
+  const d = new Date();
+  const ds = d.getFullYear().toString()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+  return 'ORD-'+ds+'-'+Math.floor(1000+Math.random()*9000);
+}
+
+function selectGrade(g, el){
+  selectedGrade = g;
+  document.querySelectorAll('.grade-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  setTimeout(()=>{
+    document.getElementById('shopStep1').classList.remove('hidden');
+    buildShop();
+    document.getElementById('shopStep1').scrollIntoView({behavior:'smooth'});
+  },300);
+}
+
+function buildShop(){
+  const g = document.getElementById('shopGrid');
+  g.innerHTML = '';
+  products.forEach((p,i)=>{
+    const stars = '⭐'.repeat(Math.floor(p.rating)) + (p.rating%1?'✨':'');
+    const d = document.createElement('div');
+    d.className = 'product-card';
+    d.innerHTML = `<span class="product-emoji">${p.emoji}</span>
+      <div class="product-name">${p.name}</div>
+      <div class="product-code">${p.code}</div>
+      <div class="product-price">₹${p.price}</div>
+      <span class="product-stars">${stars}</span>
+      <button class="buy-btn" onclick="buyProduct(${i})">🛒 Buy Now</button>`;
+    g.appendChild(d);
+  });
+}
+
+function buyProduct(idx){
+  selectedProduct = products[idx];
+  orderNumber = genOrderNum();
+  document.getElementById('orderNumDisplay').textContent = orderNumber;
+  document.getElementById('orderProductDisplay').textContent = selectedProduct.emoji + ' ' + selectedProduct.name + ' — ₹' + selectedProduct.price;
+  document.getElementById('orderCodeDisplay').textContent = 'Product Code: ' + selectedProduct.code;
+  document.getElementById('shopStep1').classList.add('hidden');
+  document.getElementById('shopStep2').classList.remove('hidden');
+  document.getElementById('shopStep2').scrollIntoView({behavior:'smooth'});
+  playSuccess();
+}
+
+function showFault(){
+  document.getElementById('shopStep2').classList.add('hidden');
+  document.getElementById('faultEmoji').textContent = selectedProduct.faultEmoji;
+  document.getElementById('faultDesc').textContent = selectedProduct.fault;
+  document.getElementById('shopStep3').classList.remove('hidden');
+  document.getElementById('shopStep3').scrollIntoView({behavior:'smooth'});
+}
+
+function pickDecision(el, isCorrect){
+  document.querySelectorAll('.decision-opt').forEach(o=>o.style.pointerEvents='none');
+  if(isCorrect){
+    el.classList.add('correct');
+    playSuccess();
+    const fb = document.getElementById('decisionFeedback');
+    fb.classList.remove('hidden');
+    fb.innerHTML = '<div style="color:var(--co-green);font-family:\'Fredoka One\',cursive;font-size:1.2rem;margin-bottom:8px">✅ Great Choice!</div><div style="font-weight:600;font-size:0.88rem;color:var(--co-muted)">You should always ask for a return, exchange, or complain to customer care. Never ignore a faulty product!</div>';
+    setTimeout(()=>{
+      if(selectedGrade==='junior') showReturnForm();
+      else showEmailForm();
+    }, 2000);
+  } else {
+    el.classList.add('wrong');
+    setTimeout(()=>{
+      el.classList.remove('wrong');
+      document.querySelectorAll('.decision-opt').forEach(o=>o.style.pointerEvents='');
+    }, 800);
+  }
+}
+
+// ── GRADE 1-3 RETURN FORM ──
+function showReturnForm(){
+  document.getElementById('shopStep3').classList.add('hidden');
+  document.getElementById('returnOrderNum').textContent = orderNumber;
+  document.getElementById('returnProdCode').textContent = selectedProduct.code;
+  document.getElementById('shopStep4A').classList.remove('hidden');
+  document.getElementById('shopStep4A').scrollIntoView({behavior:'smooth'});
+}
+
+function selectReturn(el, type){
+  returnType = type;
+  document.querySelectorAll('#returnChoice .choice-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('reasonSection').classList.remove('hidden');
+  if(returnType && returnReason) document.getElementById('submitReturnBtn').style.display='';
+}
+
+function selectReason(el, reason){
+  returnReason = reason;
+  document.querySelectorAll('#reasonChoice .choice-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  if(returnType && returnReason) document.getElementById('submitReturnBtn').style.display='';
+}
+
+function submitReturn(){
+  document.getElementById('shopStep4A').classList.add('hidden');
+  showBadge('junior');
+}
+
+// ── GRADE 4-8 EMAIL FORM ──
+function showEmailForm(){
+  document.getElementById('shopStep3').classList.add('hidden');
+  document.getElementById('emailOrderNum').textContent = orderNumber;
+  document.getElementById('emailProdName').textContent = selectedProduct.name;
+  document.getElementById('emailProdCode').textContent = selectedProduct.code;
+  document.getElementById('shopStep4B').classList.remove('hidden');
+  document.getElementById('shopStep4B').scrollIntoView({behavior:'smooth'});
+}
+
+function checkEmail(){
+  const subject = document.getElementById('emailSubject').value.trim().toLowerCase();
+  const body = document.getElementById('emailBody').value.trim().toLowerCase();
+  const orderLower = orderNumber.toLowerCase();
+  const checks = [
+    {label:'Order number included', pass: body.includes(orderLower) || body.includes(orderNumber)},
+    {label:'Problem described', pass: body.length > 30 && (body.includes('broken')||body.includes('torn')||body.includes('fake')||body.includes('wrong')||body.includes('damage')||body.includes('fault')||body.includes('used')||body.includes('crack')||body.includes('leak')||body.includes('stain')||body.includes('issue')||body.includes('problem')||body.includes('defect'))},
+    {label:'Resolution requested', pass: body.includes('replace')||body.includes('refund')||body.includes('return')||body.includes('exchange')||body.includes('new')||body.includes('money back')},
+    {label:'Subject line filled', pass: subject.length > 5}
+  ];
+  const passed = checks.filter(c=>c.pass).length;
+  const el = document.getElementById('emailResult');
+  let html = checks.map(c=>`<div class="check-item">${c.pass?'✅':'❌'} ${c.label}</div>`).join('');
+  if(passed >= 3){
+    el.className = 'check-result pass';
+    html += '<div style="margin-top:12px;font-family:\'Fredoka One\',cursive;font-size:1.1rem;color:var(--co-green)">Excellent! You filed a proper consumer complaint!</div>';
+    el.innerHTML = html;
+    playSuccess();
+    setTimeout(()=>{
+      document.getElementById('shopStep4B').classList.add('hidden');
+      showBadge('senior');
+    }, 2500);
+  } else {
+    el.className = 'check-result fail';
+    html += '<div style="margin-top:12px">Try including more details. Make sure your email has the order number, problem, and what you want.</div>';
+    el.innerHTML = html;
+  }
+}
+
+function showBadge(grade){
+  if(grade==='junior'){
+    document.getElementById('badgeIcon').textContent = '⭐';
+    document.getElementById('badgeTitle').textContent = 'Consumer Hero!';
+    document.getElementById('badgeSub').textContent = 'You used your right to return a faulty product!';
+    document.getElementById('certTitle').textContent = 'Consumer Hero Badge';
+  } else {
+    document.getElementById('badgeIcon').textContent = '🏅';
+    document.getElementById('badgeTitle').textContent = 'Smart Consumer!';
+    document.getElementById('badgeSub').textContent = 'You wrote a proper complaint email!';
+    document.getElementById('certTitle').textContent = 'Smart Consumer Certificate';
+  }
+  const d = new Date();
+  document.getElementById('certDate').textContent = d.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('shopStep5').classList.remove('hidden');
+  document.getElementById('shopStep5').scrollIntoView({behavior:'smooth'});
+  confetti();
+  playSuccess();
+  markComplete(1);
+}
+
+// ═══════════ SPOT IT DATA ═══════════
+const spotItems = [
+  {ico:'🛡️', name:'Right to Safety', isCorrect:true},
+  {ico:'📋', name:'Right to Information', isCorrect:true},
+  {ico:'🤚', name:'Right to Choose', isCorrect:true},
+  {ico:'⚖️', name:'Right to Seek Redressal', isCorrect:true},
+  {ico:'📢', name:'Right to be Heard', isCorrect:true},
+  {ico:'🎓', name:'Right to Consumer Education', isCorrect:true},
+  {ico:'🎮', name:'Right to Play Games', isCorrect:false},
+  {ico:'🍕', name:'Right to Free Pizza', isCorrect:false},
+  {ico:'📱', name:'Right to Free Phone', isCorrect:false},
+  {ico:'🎵', name:'Right to Sing in Class', isCorrect:false},
+  {ico:'🛏️', name:'Right to Skip Homework', isCorrect:false},
+  {ico:'🎁', name:'Right to Free Gifts', isCorrect:false},
+];
+const SPOT_TOTAL = spotItems.filter(x=>x.isCorrect).length;
+let spotCount = 0;
+
+function buildSpot(){
+  spotCount = 0;
+  const g = document.getElementById('spotGrid');
+  g.innerHTML = '';
+  document.getElementById('spotTotal').textContent = SPOT_TOTAL;
+  document.getElementById('spotFound').textContent = '0';
+  document.getElementById('spotStatus').innerHTML = 'Found: <span id="spotFound">0</span> / <span id="spotTotal">'+SPOT_TOTAL+'</span> rights';
+  const shuffled = [...spotItems].sort(()=>Math.random()-0.5);
+  shuffled.forEach(item=>{
+    const d = document.createElement('div');
+    d.className = 'spot-item'; d.dataset.correct = item.isCorrect;
+    d.innerHTML = `<span class="s-ico">${item.ico}</span><div class="s-name">${item.name}</div><span class="s-badge"></span>`;
+    d.onclick = ()=>tapSpot(d);
+    g.appendChild(d);
+  });
+}
+
+function tapSpot(el){
+  if(el.classList.contains('done')) return;
+  el.classList.add('done');
+  if(el.dataset.correct==='true'){
+    el.classList.add('hit'); spotCount++;
+    el.querySelector('.s-badge').textContent='✅';
+    document.getElementById('spotFound').textContent=spotCount;
+    if(spotCount===SPOT_TOTAL){
+      document.getElementById('spotStatus').textContent='🎉 You found all the real consumer rights!';
+      confetti(); playSuccess(); markComplete(2);
+    }
+  } else {
+    el.classList.add('miss');
+    el.querySelector('.s-badge').textContent='❌';
+    setTimeout(()=>{el.classList.remove('miss','done');el.querySelector('.s-badge').textContent='';},700);
+  }
+}
+
+function resetSpot(){ buildSpot(); }
+
+// ═══════════ FILL IN THE BLANKS DATA ═══════════
+const fitbSentences = [
+  {template:'A person who buys goods or services is called a ___.', blank:'consumer'},
+  {template:'The right to ___ protects you from dangerous products.', blank:'safety'},
+  {template:'You can ask for a ___ if a product is defective.', blank:'refund'},
+  {template:'World Consumer Rights Day is celebrated on March ___.', blank:'15'},
+  {template:'The ___ Protection Act is an Indian law for buyers.', blank:'Consumer'},
+  {template:'You can call the National Consumer Helpline at ___.', blank:'1800-11-4000'},
+];
+const wordBankWords = ['consumer','safety','refund','15','Consumer','1800-11-4000','choose','complaint'];
+let selectedWord = null;
+
+function buildFITB(){
+  const wb = document.getElementById('wordBank');
+  wb.innerHTML = '';
+  const shuffled = [...wordBankWords].sort(()=>Math.random()-0.5);
+  shuffled.forEach(w=>{
+    const c = document.createElement('div');
+    c.className = 'wb-chip'; c.dataset.word = w; c.textContent = w;
+    c.onclick = ()=>selectWordFn(c);
+    wb.appendChild(c);
+  });
+  const cont = document.getElementById('fitbContainer');
+  cont.innerHTML = '';
+  fitbSentences.forEach((s,i)=>{
+    const d = document.createElement('div');
+    d.className = 'fitb-sentence';
+    d.innerHTML = s.template.replace('___',`<span class="fitb-blank" data-ans="${s.blank}" onclick="fillBlank(this)">___</span>`);
+    cont.appendChild(d);
+  });
+}
+
+function selectWordFn(chip){
+  if(chip.classList.contains('used')) return;
+  document.querySelectorAll('.wb-chip').forEach(c=>c.style.outline='');
+  selectedWord = chip.dataset.word;
+  chip.style.outline = '3px solid var(--co-orange)';
+}
+
+function fillBlank(blank){
+  if(!selectedWord){alert('👆 First tap a word from the Word Bank!');return;}
+  if(blank.classList.contains('correct')) return;
+  blank.textContent = selectedWord;
+  if(selectedWord===blank.dataset.ans){
+    blank.classList.add('correct');
+    document.querySelectorAll('.wb-chip').forEach(c=>{if(c.dataset.word===selectedWord){c.classList.add('used');c.style.outline='';}});
+  } else {blank.classList.add('wrong');setTimeout(()=>{blank.classList.remove('wrong');blank.textContent='___';},700);}
+  selectedWord=null;
+  document.querySelectorAll('.wb-chip').forEach(c=>c.style.outline='');
+  const done=document.querySelectorAll('.fitb-blank.correct').length;
+  const total=document.querySelectorAll('.fitb-blank').length;
+  if(done===total){document.getElementById('fitbScore').textContent='🎉 All blanks filled correctly!';confetti();playSuccess();markComplete(3);}
+  else document.getElementById('fitbScore').textContent=`${done}/${total} correct`;
+}
+
+function resetFITB(){
+  document.querySelectorAll('.fitb-blank').forEach(b=>{b.textContent='___';b.classList.remove('correct','wrong');});
+  document.querySelectorAll('.wb-chip').forEach(c=>{c.classList.remove('used');c.style.outline='';});
+  document.getElementById('fitbScore').textContent=''; selectedWord=null;
+}
+
+// ═══════════ TRUE/FALSE DATA ═══════════
+const tfData = [
+  {s:'A consumer is someone who buys goods or services.', ans:true, exp:'Correct! Anyone who purchases goods for personal use is a consumer.'},
+  {s:'If you get a faulty product, you should just throw it away.', ans:false, exp:'No! You should ask for a return, exchange, or file a complaint.'},
+  {s:'World Consumer Rights Day is on March 15.', ans:true, exp:'Correct! It is celebrated every year on March 15.'},
+  {s:'Companies can sell expired food products legally.', ans:false, exp:'Wrong! The Right to Safety protects consumers from unsafe products.'},
+  {s:'The Right to Choose means you can pick from different products.', ans:true, exp:'Correct! No one can force you to buy only one brand.'},
+  {s:'You cannot complain about online purchases.', ans:false, exp:'Wrong! You can complain about any purchase — online or offline.'},
+  {s:'The National Consumer Helpline number is 1800-11-4000.', ans:true, exp:'Correct! This is a toll-free number for consumer complaints in India.'},
+  {s:'A warranty card is not important and should be thrown away.', ans:false, exp:'Wrong! Always keep the warranty card — it helps with repairs and replacements.'},
+  {s:'Reading product labels is part of the Right to Information.', ans:true, exp:'Correct! The Right to Information means knowing what you are buying.'},
+  {s:'Only adults have consumer rights, not children.', ans:false, exp:'Wrong! Everyone who buys something has consumer rights, including children.'},
+];
+
+function buildTF(){
+  const c = document.getElementById('tfContainer'); c.innerHTML='';
+  let answered = 0;
+  tfData.forEach((item,i)=>{
+    const div = document.createElement('div'); div.className='tf-item';
+    div.innerHTML=`<div class="tf-statement">${i+1}. ${item.s}</div>
+    <div class="tf-btns">
+      <button class="tf-btn true-btn" onclick="answerTF(this,true,${i})">👍 TRUE</button>
+      <button class="tf-btn false-btn" onclick="answerTF(this,false,${i})">👎 FALSE</button>
+    </div><div class="tf-feedback" id="tff-${i}"></div>`;
+    c.appendChild(div);
+  });
+}
+
+function answerTF(btn,choice,idx){
+  const item=document.getElementById('tfContainer').children[idx];
+  item.querySelectorAll('.tf-btn').forEach(b=>b.disabled=true);
+  const correct=choice===tfData[idx].ans;
+  btn.className='tf-btn '+(choice?'selected-true':'selected-false');
+  if(!correct) item.querySelectorAll('.tf-btn')[choice?1:0].className='tf-btn reveal-correct';
+  const fb=document.getElementById('tff-'+idx);
+  fb.className='tf-feedback show '+(correct?'right':'wrong');
+  fb.textContent=(correct?'✅ Correct! ':'❌ Wrong! ')+tfData[idx].exp;
+  // Check if all answered
+  const allDone = document.querySelectorAll('.tf-btn:disabled').length === tfData.length*2;
+  if(allDone){markComplete(4);}
+}
+
+// ═══════════ MATCH IT DATA ═══════════
+const matchPairs = [
+  {id:'1', left:{icon:'🛡️', label:'Right to Safety'}, right:'Protection from dangerous goods'},
+  {id:'2', left:{icon:'📋', label:'Right to Information'}, right:'Know what you are buying'},
+  {id:'3', left:{icon:'🤚', label:'Right to Choose'}, right:'Pick from many products freely'},
+  {id:'4', left:{icon:'⚖️', label:'Right to Seek Redressal'}, right:'Complain and get problems fixed'},
+  {id:'5', left:{icon:'📢', label:'Right to be Heard'}, right:'Voice your opinion as a buyer'},
+  {id:'6', left:{icon:'🎓', label:'Right to Consumer Education'}, right:'Learn about your rights as a consumer'},
+];
+
+let matchSel={left:null,right:null}, matchedCount=0;
+
+function buildMatch(){
+  const wrap = document.getElementById('matchWrap');
+  wrap.innerHTML='';
+  const leftCol = document.createElement('div'); leftCol.className='match-col';
+  const rightCol = document.createElement('div'); rightCol.className='match-col';
+  matchPairs.forEach(p=>{
+    const l = document.createElement('div');
+    l.className='match-left-item'; l.dataset.id=p.id;
+    l.innerHTML=`<span>${p.left.icon}</span> ${p.left.label}`;
+    l.onclick=()=>selectMatch(l,'left');
+    leftCol.appendChild(l);
+  });
+  const shuffledRight = [...matchPairs].sort(()=>Math.random()-0.5);
+  shuffledRight.forEach(p=>{
+    const r = document.createElement('div');
+    r.className='match-right-item'; r.dataset.id=p.id;
+    r.textContent=p.right;
+    r.onclick=()=>selectMatch(r,'right');
+    rightCol.appendChild(r);
+  });
+  wrap.appendChild(leftCol);
+  wrap.appendChild(rightCol);
+}
+
+function selectMatch(el,side){
+  if(el.classList.contains('matched')) return;
+  document.querySelectorAll(`.match-${side}-item.sel`).forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel'); matchSel[side]=el;
+  if(matchSel.left&&matchSel.right){
+    if(matchSel.left.dataset.id===matchSel.right.dataset.id){
+      [matchSel.left,matchSel.right].forEach(e=>{e.classList.add('matched');e.classList.remove('sel');});
+      matchedCount++;
+      if(matchedCount===matchPairs.length){
+        document.getElementById('matchResult').className='match-result show';
+        document.getElementById('matchResult').textContent='🎉 All pairs matched!';
+        confetti();playSuccess();markComplete(5);
+      }
+    } else {
+      [matchSel.left,matchSel.right].forEach(e=>{e.classList.add('shk');setTimeout(()=>e.classList.remove('shk','sel'),500);});
+    }
+    matchSel={left:null,right:null};
+  }
+}
+
+function resetMatch(){
+  document.querySelectorAll('.match-left-item,.match-right-item').forEach(e=>e.classList.remove('matched','sel','shk'));
+  matchSel={left:null,right:null}; matchedCount=0;
+  document.getElementById('matchResult').className='match-result';
+  buildMatch();
+}
+
+// ═══════════ SCENARIOS DATA ═══════════
+const scenarios = [
+  {q:'You bought a new water bottle online, but when it arrived, the cap was broken and water leaks out. What should you do?',
+   opts:['Use it anyway and be careful','Ask for a replacement or refund','Throw it in the dustbin'],
+   ans:1, exp:'You have the Right to Seek Redressal. Always ask for a replacement or refund for defective products.'},
+  {q:'A shopkeeper is selling a packet of chips that has already expired. What should you do?',
+   opts:['Buy it because it\'s on sale','Report it to the food safety officer','Eat it quickly before it goes more bad'],
+   ans:1, exp:'Expired food is a safety hazard. The Right to Safety protects you from such products. Report it!'},
+  {q:'You want to buy a new school bag, but the shopkeeper says you MUST buy the most expensive one. What right does this violate?',
+   opts:['Right to Safety','Right to Choose','Right to Information'],
+   ans:1, exp:'The Right to Choose means nobody can force you to buy a specific product. You can choose freely!'},
+  {q:'You bought shoes online but received fake ones that look different from the picture. The company won\'t answer your calls. What should you do?',
+   opts:['Give up and keep the fake shoes','Post a complaint on the National Consumer Helpline','Buy another pair from the same company'],
+   ans:1, exp:'When a company doesn\'t respond, escalate your complaint to the National Consumer Helpline (1800-11-4000) or consumer forum.'},
+  {q:'A medicine bottle has no expiry date, ingredients list, or manufacturer details printed on it. Which right is violated?',
+   opts:['Right to be Heard','Right to Consumer Education','Right to Information'],
+   ans:2, exp:'The Right to Information means all products must display complete details including expiry, ingredients, and manufacturer.'},
+];
+
+function buildScenarios(){
+  const c=document.getElementById('scenarioContainer'); c.innerHTML='';
+  scenarios.forEach((sc,i)=>{
+    const div=document.createElement('div'); div.className='scenario-card';
+    let opts=sc.opts.map((o,j)=>`<div class="scenario-opt" onclick="pickScenario(this,${j},${i})">${String.fromCharCode(65+j)}. ${o}</div>`).join('');
+    div.innerHTML=`<div class="scenario-q"><span class="sq-num">Q${i+1}</span>${sc.q}</div><div class="scenario-choices">${opts}</div><div class="scenario-explain" id="sce-${i}"></div>`;
+    c.appendChild(div);
+  });
+}
+
+let scenarioAnswered = 0;
+function pickScenario(el,choice,idx){
+  document.getElementById('scenarioContainer').children[idx].querySelectorAll('.scenario-opt').forEach(o=>o.style.pointerEvents='none');
+  const correct=choice===scenarios[idx].ans;
+  el.classList.add(correct?'picked-right':'picked-wrong');
+  if(!correct) document.getElementById('scenarioContainer').children[idx].querySelectorAll('.scenario-opt')[scenarios[idx].ans].classList.add('show-right');
+  const exp=document.getElementById('sce-'+idx);
+  exp.textContent=(correct?'✅ ':'💡 ')+scenarios[idx].exp; exp.classList.add('show');
+  scenarioAnswered++;
+  if(scenarioAnswered===scenarios.length) markComplete(6);
+}
+
+// ═══════════ QUIZ DATA ═══════════
+const allQ = [
+  {lvl:'⭐ Easy', q:'What is a consumer?', e:'🧑', opts:['A person who makes products','A person who buys goods or services','A person who sells things','A person who delivers packages'], ans:1, ex:'A consumer is someone who buys goods or services for personal use.'},
+  {lvl:'⭐ Easy', q:'When is World Consumer Rights Day celebrated?', e:'📅', opts:['January 1','March 15','August 15','December 25'], ans:1, ex:'World Consumer Rights Day is celebrated on March 15 every year.'},
+  {lvl:'⭐ Easy', q:'What should you do if you get a broken product?', e:'💔', opts:['Keep it quietly','Ask for a return or exchange','Throw it away','Give it to a friend'], ans:1, ex:'You should always ask for a return, exchange, or file a complaint.'},
+  {lvl:'⭐ Easy', q:'Which of these is a consumer right?', e:'🛡️', opts:['Right to Free Food','Right to Safety','Right to Skip School','Right to Play All Day'], ans:1, ex:'Right to Safety is one of the six consumer rights.'},
+  {lvl:'⭐⭐ Medium', q:'What does the Right to Information mean?', e:'📋', opts:['You can read any book for free','Products must show complete details','You get free internet','Shops must give you gifts'], ans:1, ex:'Right to Information means products must display details like price, expiry date, ingredients, etc.'},
+  {lvl:'⭐⭐ Medium', q:'A shop forces you to buy only Brand X. Which right is violated?', e:'🤚', opts:['Right to Safety','Right to be Heard','Right to Choose','Right to Education'], ans:2, ex:'The Right to Choose means no one can force you to buy a specific product or brand.'},
+  {lvl:'⭐⭐ Medium', q:'What is the National Consumer Helpline number in India?', e:'📞', opts:['100','1800-11-4000','112','1098'], ans:1, ex:'1800-11-4000 is the toll-free National Consumer Helpline number.'},
+  {lvl:'⭐⭐ Medium', q:'Which document helps you get a product repaired for free?', e:'📄', opts:['Report card','Warranty card','Aadhar card','Library card'], ans:1, ex:'A warranty card is proof that the company will repair or replace the product within a certain time.'},
+  {lvl:'⭐⭐⭐ Hard', q:'Which Indian law protects consumer rights?', e:'⚖️', opts:['Right to Education Act','Consumer Protection Act','Income Tax Act','Wildlife Protection Act'], ans:1, ex:'The Consumer Protection Act (2019) is the main law protecting consumer rights in India.'},
+  {lvl:'⭐⭐⭐ Hard', q:'If a company sells you expired medicine, which TWO rights are violated?', e:'💊', opts:['Right to Safety & Right to Information','Right to Choose & Right to Education','Right to be Heard & Right to Safety','Right to Information & Right to Choose'], ans:0, ex:'Expired medicine violates both Right to Safety (dangerous) and Right to Information (misleading labels).'},
+  {lvl:'⭐⭐⭐ Hard', q:'Why should you always keep the bill after buying a product?', e:'🧾', opts:['For decoration','As proof of purchase for complaints','To give to your teacher','To throw away later'], ans:1, ex:'Bills are proof of purchase. Without them, it is harder to file complaints or get replacements.'},
+  {lvl:'⭐⭐⭐ Hard', q:'What is the BEST first step when you receive a faulty product from an online store?', e:'📦', opts:['Post angry reviews on social media','Contact customer support with order details','Return it without telling anyone','Buy from a different store immediately'], ans:1, ex:'The best first step is to contact customer support with your order number and details of the fault.'},
+];
+
+let qIdx=0,qScore=0,qAnswered=false,qResults=[];
+function initQuiz(){
+  qIdx=0;qScore=0;qAnswered=false;qResults=[];
+  document.getElementById('qScoreScreen').style.display='none';
+  document.getElementById('quizMain').style.display='block';
+  document.getElementById('qTotal').textContent=allQ.length;
+  renderQ(); renderDots();
+}
+function renderQ(){
+  const q=allQ[qIdx];
+  document.getElementById('qLvl').textContent=q.lvl;
+  document.getElementById('qEmo').textContent=q.e;
+  document.getElementById('qTxt').textContent=q.q;
+  document.getElementById('qCounter').textContent='Q '+(qIdx+1)+' / '+allQ.length;
+  document.getElementById('qBar').style.width=(qIdx/allQ.length*100)+'%';
+  const og=document.getElementById('qOpts'); og.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button'); b.className='opt-btn';
+    b.innerHTML=`<span class="opt-icon">${['🅐','🅑','🅒','🅓'][i]}</span>${o}`;
+    b.onclick=()=>ansQ(i,b); og.appendChild(b);
+  });
+  document.getElementById('qFeed').className='q-feedback';
+  document.getElementById('qNextBtn').style.display='none'; qAnswered=false;
+}
+function renderDots(){
+  const dr=document.getElementById('qdots'); dr.innerHTML='';
+  allQ.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className='q-dot'+(i===qIdx?' curr':i<qIdx?(qResults[i]?' ok':' no'):'');
+    dr.appendChild(d);
+  });
+}
+function ansQ(choice,btn){
+  if(qAnswered) return; qAnswered=true;
+  const q=allQ[qIdx];
+  document.querySelectorAll('.opt-btn').forEach(b=>b.disabled=true);
+  const correct=choice===q.ans;
+  if(correct){qScore++;qResults.push(true);btn.classList.add('right');}
+  else{qResults.push(false);btn.classList.add('wrong');document.querySelectorAll('.opt-btn')[q.ans].classList.add('right');}
+  document.getElementById('qScoreBadge').textContent='⭐ '+qScore;
+  const fb=document.getElementById('qFeed');
+  fb.className='q-feedback show '+(correct?'ok':'no');
+  fb.textContent=(correct?'⭐ Correct! ':'❌ Not quite! ')+q.ex;
+  document.getElementById('qNextBtn').style.display='block'; renderDots();
+}
+function nextQ(){qIdx++;if(qIdx>=allQ.length)showQScore();else{renderQ();renderDots();}}
+function showQScore(){
+  document.getElementById('quizMain').style.display='none';
+  document.getElementById('qScoreScreen').style.display='block';
+  document.getElementById('sBig').textContent=qScore;
+  const msgs=['Keep practising! 💪','You\'re learning! 📖','Getting there! 🌟','Great work! 🎉','Excellent! 🏆','PERFECT! 🤖✨'];
+  document.getElementById('sMsg').textContent=msgs[Math.min(Math.floor(qScore/2),5)];
+  document.getElementById('sStars').textContent=qScore>=10?'⭐⭐⭐':qScore>=6?'⭐⭐':'⭐';
+  document.getElementById('sTrophy').textContent=qScore>=10?'🏆':qScore>=6?'🎖️':'📚';
+  document.getElementById('qBar').style.width='100%';
+  if(qScore>=10){confetti();playSuccess();}
+  markComplete(7);
+}
+
+// ═══════════ INIT ALL ═══════════
+buildSpot();
+buildFITB();
+buildTF();
+buildMatch();
+buildScenarios();
+initQuiz();
+markComplete(0); // Learn tab read
+</script>
+</body>
+</html>
